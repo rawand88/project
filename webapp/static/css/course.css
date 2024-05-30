@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.course-details-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+.course-details {
+    padding: 20px;
+}
+.course-details h2 {
+    margin-top: 0;
+}
+.course-details p {
+    margin-bottom: 0;
+}
+.register-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.register-button:hover {
+    background-color: #555;
+}

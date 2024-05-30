@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <div class="form-box">
+        <h2>Sign Up</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Create Account">
+            <a href="/login" class="link">Have an account? Log in</a>
+        </form>
+        {% for msg in messages %}
+            <p class="message">{{ msg }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

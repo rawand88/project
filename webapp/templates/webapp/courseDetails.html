@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> course details: {{course.name}}</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/course.css'%}">
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+
+</head>
+<body>
+    {% include 'webapp/header.html' %}
+
+    <div class="course-details-container">
+
+        <div class="course-details">
+            <h2>Course details</h2>
+            <p><strong>course Name : </strong>{{course.name}}</p>
+            <p><strong>course description : </strong>{{course.description}}</p>
+            <p><strong>instructor : </strong>{{course.instructor}}</p>
+            <p><strong>Schedule : </strong>days:{{course.schedule_id.days}}  <br><br>
+                {{course.schedule_id.start_time}} - {{course.schedule_id.end_time}}</p>
+                
+            <p ><strong>prerequisites : </strong>
+                <ul>
+                    {%for pre in prerequisites%}
+                    <li><a href="/courseDetails/{{pre.code}}">{{pre.name}}</a></li>
+                    {%endfor%}
+                </ul></p>
+            <p><strong>available spots : </strong>{{spots}}</p>
+         
+            <br>
+            <!-- زر التسجيل بالكورس -->
+            <a href="/select-course/{{course.code}}" class="register-button">register</a>
+        </div>
+        {%for msg in messages%}
+        <p style="color:red">{{msg}}</p>
+       {%endfor%}
+    </div>
+</body>
+</html>

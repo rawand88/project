@@ -1,0 +1,31 @@
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 22%;
+}
+
+nav > a {
+    color: white;
+    text-decoration: none;
+    transition: ease 0.3s;
+}
+
+nav > a:hover {
+    transform: scale(1.1);
+    border-bottom: 2px solid white;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #628bb5;
+}

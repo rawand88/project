@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap.pmg" rel="stylesheet">
+</head>
+<body>
+    {% include 'webapp/header.html' %}
+    {% include 'webapp/notifications.html' %}
+    <div class="notifications-container">
+      {% for notification in notifications %}
+      <div class="notification">
+          <p>{{ notification.message }}</p>
+          <small>{{ notification.timestamp }}</small>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="search-container">
+      <form action="" method="post">
+        {% csrf_token %} 
+        {{ form.as_p }}
+        <input type="submit" value="Search" />
+      </form>
+    </div>
+    
+    <div class="courses-container">
+      {% for course in courses %}
+      <div class="course">
+        <div class="details">
+          <h2>{{ course.name }}</h2>
+          <p>{{ course.schedule_id.start_time }} - {{ course.schedule_id.end_time }}</p>
+        </div>
+        <a href="/courseDetails/{{ course.code }}" class="view-details">View Details</a>
+      </div>
+      {% endfor %}
+    </div>
+</body>
+</html>

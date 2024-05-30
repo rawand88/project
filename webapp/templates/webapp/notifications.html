@@ -1,0 +1,9 @@
+{% load static %}
+<link rel="stylesheet" href="{%static 'css/notifications.css'%}">
+<div class="notifications">
+    {% for notification in notifications%}
+    <div class="notification">
+       <p> you have a leacture {{notification.course_name}} at {{notification.start_time}}</p>
+    </div>
+    {%endfor%}
+</div>
